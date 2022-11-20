@@ -34,7 +34,7 @@ variable "profile" {
   type = string
 }
 
-variable "project_name" {
+variable "cluster_name" {
   type = string
 }
 
@@ -52,9 +52,10 @@ variable "vpc_name" {
 
 variable "instance_type" {
   type = string
+  default = "db.t2.small"
 }
 
-variable "eks_instance_type" {
+variable "eks_node_type" {
   type = string
 }
 

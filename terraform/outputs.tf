@@ -18,6 +18,8 @@ output "region" {
   value       = var.region
 }
 
+
+### opswerks-eks-ph-1 outputs ###
 output "rds_db_endpoint" {
   value = aws_db_instance.awsospwerkseksph1db.endpoint
 }
