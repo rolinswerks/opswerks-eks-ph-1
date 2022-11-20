@@ -1,0 +1,96 @@
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+
+# Backup files #
+*.bak
+
+# Python #
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+/test_reports
+
+# pyenv
+.python-version
+
+# Environments
+*.env
+.venv
+
+# mkdocs documentation
+/site
+
+.DS_Store
+/frontend/analyzer
+
+# blackbox
+/.blackbox/pubring.gpg~
+/.blackbox/pubring.kbx~
+/.blackbox/secring.gpg
+/development.env
+/frontend/config.js
+/frontend/public/config.js
+/frontend/config.dev.js
+/frontend/config.dev_ue1.js
+/frontend/config.local.js
+/frontend/config.prod.js
+/frontend/config.stg_ue1.js
+/backend/development.env
+
+# terraform
+terraform/**/.terraform/
+kubeconfig*
+/credentials.json
+/credentials.local.json
+/credentials.prod.json
+/credentials.stg_ue1.json
+/robotframework/vault.py
+/backend/credentials.json
+log.html
+output.xml
+report.html
+selenium-screenshot-*.png
+
+#vscode
+.vscode
+/credentials.dev.json
+.VSCodeCounter/**
