@@ -106,14 +106,9 @@ resource "aws_iam_role" "opswerks-eks-ph-1-gh-actions" {
 resource "aws_iam_role_policy_attachment" "opswerks-eks-ph-1-gh-actions" {
   role       = aws_iam_role.opswerks-eks-ph-1-gh-actions.name
   policy_arn = aws_iam_policy.opswerks-eks-ph-1-gh-actions.arn
-
-  tags = merge(
-    {Project = "Default EKS Cluster"}, 
-    local.tags
-  )
 }
 
 # List of Created Objects Reflected on Terraform Output #
 output "opswerks-eks-ph-1-gh-actions_role" {
-  value = aws_iam_role.github_actions.arn
+  value = aws_iam_role.opswerks-eks-ph-1-gh-actions.arn
 }

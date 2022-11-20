@@ -68,6 +68,10 @@ module "eks" {
       vpc_security_group_ids = [
         aws_security_group.opswerks-eks-ph-ngrp.id
       ]
+
+      labels = {
+        application = "opswerks-eks-defalt-components"
+      }
     },
   }
 
