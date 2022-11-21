@@ -22,6 +22,7 @@ resource "aws_security_group" "postgres_rds_security_group" {
 
 resource "aws_security_group" "opswerks-eks-ph-ngrp" {
   name_prefix = "opswerks-eks-ph-ngrp"
+  description = "Allow SSH for the nodes"
   vpc_id      = module.vpc.vpc_id
 
   ingress {

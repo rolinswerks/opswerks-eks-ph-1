@@ -28,7 +28,7 @@ resource "aws_db_parameter_group" "postgres-db-params" {
   }
 }
 
-### opswerks-eks-ph-1 RDS details ###
+### START: opswerks-eks-ph-1 RDS details ###
 resource "aws_db_instance" "awsospwerkseksph1db" {
   allocated_storage    = 30
   engine               = "postgres"
@@ -54,4 +54,5 @@ resource "aws_db_instance" "awsospwerkseksph1db" {
     local.tags
   )
 }
+### END: opswerks-eks-ph-1 RDS details ###
 

@@ -1,4 +1,4 @@
-### opswerks-eks-ph-1 S3 details ###
+### START: opswerks-eks-ph-1 S3 details ###
 resource "aws_s3_bucket" "opswerks-eks-ph-1" {
   bucket = "opswerks-eks-ph-1-files-${var.environment}"
 
@@ -30,3 +30,4 @@ resource "aws_iam_policy" "opswerks-eks-ph-1_files_bucket" {
   name = "opswerks-eks-ph-1-prod-files-policy"
   policy = data.aws_iam_policy_document.opswerks_eks_ph_1_s3_policy.json
 }
+### END: opswerks-eks-ph-1 S3 details ###

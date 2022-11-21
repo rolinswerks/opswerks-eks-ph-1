@@ -22,7 +22,7 @@ variable "organization" {
 # 7. Created Objects Reflected on Terraform Output
 
 
-### opswerks-eks-ph-1 Github and ECR details ###
+### START: opswerks-eks-ph-1 Github and ECR details ###
 # List of ECRs #
 resource "aws_ecr_repository" "opswerks-eks-ph-1" {
   name = "opswerks-eks-ph-1"
@@ -37,6 +37,28 @@ resource "aws_ecr_repository" "opswerks-eks-ph-1" {
   )
 }
 
+# List of Image Lifecycle Policies
+resource "aws_ecr_lifecycle_policy" "opswerks-eks-ph-1-ecr-policy" {
+  repository = aws_ecr_repository.opswerks-eks-ph-1.name
+
+  policy = jsonencode({
+    rules = [
+        {
+            rulePriority = 1,
+            description  = "Expire untagged/tagged images older than 30 days",
+            selection    = {
+                tagStatus   = "any",
+                countType   = "sinceImagePushed",
+                countUnit   = "days",
+                countNumber =  30
+            },
+            action = {
+                type = "expire"
+            }
+        }
+    ]
+  })
+}
 
 # List of IAM Role Policies Content #
 data "aws_iam_policy_document" "opswerks_eks_ph_1_gh_assume_role" {
@@ -94,6 +116,7 @@ resource "aws_iam_policy" "opswerks-eks-ph-1-gh-actions" {
 # List of IAM Roles #
 resource "aws_iam_role" "opswerks-eks-ph-1-gh-actions" {
   name               = "${var.organization}-ci-opswerks-eks-ph-1"
+  description        = "Role to be assumed by Github to be able to deploy Kubernetes changes on the cluster. This role must be added under module.eks.aws_auth_roles TF section so it can be added on the clusters aws-auth configmap"
   assume_role_policy = data.aws_iam_policy_document.opswerks_eks_ph_1_gh_assume_role.json
 
   tags = merge(
@@ -112,3 +135,4 @@ resource "aws_iam_role_policy_attachment" "opswerks-eks-ph-1-gh-actions" {
 output "opswerks-eks-ph-1-gh-actions_role" {
   value = aws_iam_role.opswerks-eks-ph-1-gh-actions.arn
 }
+### END: opswerks-eks-ph-1 Github and ECR details ###
